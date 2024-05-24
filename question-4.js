@@ -4,11 +4,14 @@ const inventory = [
   { name: "Banana", price: 10, quantity: 50 },
   { name: "Orange", price: 30, quantity: 60 },
 ];
-let minQuantity = inventory[0].quantity;
+let minQuantity = Infinity;
+let nameOfMinQuantity = ""
 
-for  (let i = 0; i < inventory.length; i++) {
-  if (inventory[i].quantity < minQuantity) {
-    minQuantity = inventory[i].quantity;
-    console.log (`สินค้าที่มีจำนวนต่ำที่สุดในคลังสินค้าคือ ${inventory[i].name} ซึ่งมี ${inventory[i].quantity} ชิ้น`)
+for  (let key in inventory) {
+  // console.log(inventory[key]);
+  if (inventory[key].quantity < minQuantity) {
+    minQuantity = inventory[key].quantity;
+    nameOfMinQuantity = inventory[key].name;
   }
 }
+console.log (`สินค้าที่มีจำนวนต่ำที่สุดในคลังสินค้าคือ ${nameOfMinQuantity} ซึ่งมี ${minQuantity} ชิ้น`)
